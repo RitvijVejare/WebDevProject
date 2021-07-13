@@ -3,7 +3,9 @@ import React from 'react';
 const Store = () => {
     return ( 
         <React.Fragment>
-            <Typography>Store</Typography>
+            <div>
+                <Typography>Store</Typography>
+            </div>
         </React.Fragment>
      );
 }
