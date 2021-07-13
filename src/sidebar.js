@@ -157,11 +157,16 @@ const Sidebar = () => {
     };
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-
+    const [searchOpen, setSearchOpen] = React.useState(false)
     const handleDrawerOpen = () => {
         setOpen(true);
     };
-
+    const handleSearchOpen = () => {
+        setSearchOpen(true)
+    }
+    const handleSearchClose = () =>{
+        setSearchOpen(false)
+    }
     const handleDrawerClose = () => {
         setOpen(false);
     };
@@ -180,17 +185,34 @@ const Sidebar = () => {
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <div className={classes.title}>
-                                <Grid container>
-                                    <Grid item xs={12} style={{display:"flex", justifyContent:"center"}}>
-                                        <img src={logo} height="29.6px" width="30px" alt="logo"/>
-                                        <Typography style={{fontSize:"20px", fontWeight:"bolder", color:"#C3C6CE"}}>
-                                            Origin
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </div>
-                            <Button color="inherit"><SearchIcon /></Button>
+                            { (searchOpen&&!open) ? (
+                                <TextField
+                                    variant="outlined"
+                                    style={{backgroundColor:"#ffffff", height:"50px", width:"90%",marginLeft:"20px", borderRadius:"10px"}}
+                                    placeholder="Search Games and More"
+                                    InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start" onClick={handleSearchClose}>
+                                            <SearchIcon />
+                                        </InputAdornment>
+                                    ),
+                                    }}
+                                />
+                            ) : (
+                                <React.Fragment>
+                                    <div className={classes.title}>
+                                        <Grid container>
+                                            <Grid item xs={12} style={{display:"flex", justifyContent:"center"}}>
+                                                <img src={logo} height="29.6px" width="30px" alt="logo"/>
+                                                <Typography style={{fontSize:"20px", fontWeight:"bolder", color:"#C3C6CE"}}>
+                                                    Origin
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </div>
+                                    <Button color="inherit" onClick={handleSearchOpen}><SearchIcon /></Button>
+                                </React.Fragment>
+                            )}
                         </Toolbar>
                     </AppBar>
                     <Drawer
