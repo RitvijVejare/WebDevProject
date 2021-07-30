@@ -1,3 +1,12 @@
+# Introduction of Project
+
+This project is a small clone of https://www.origin.com/. It has been made only by using ReactJS. For running the project, you can just clone the repo. After that you have to run the command 'npm install'. Then you can run the project using the command 'npm start' which will start the project.
+
+### Contributors to the project:
+
+- Ritvij Vejare
+- Aniket Karangutkar
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
